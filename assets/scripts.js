@@ -110,8 +110,10 @@ class Carousel {
     this.root.appendChild(controlNext);
     controlNext.addEventListener("click", this.next.bind(this));
     controlPrev.addEventListener("click", this.prev.bind(this));
-    this.root.addEventListener("mouseover", this.stopAutoSlide.bind(this));
-    this.root.addEventListener("mouseout", this.startAutoSlide.bind(this));
+    if (this.options.autoSlide) {
+      this.root.addEventListener("mouseover", this.stopAutoSlide.bind(this));
+      this.root.addEventListener("mouseout", this.startAutoSlide.bind(this));
+    }
   }
 
   createPagination() {
@@ -212,7 +214,7 @@ class Carousel {
 }
 
 const onReady = function () {
-  const carousel = new Carousel(document.querySelector("#carousel"), {
+  new Carousel(document.querySelector("#carousel"), {
     infinite: true,
     pagination: true,
     autoSlide: true,
