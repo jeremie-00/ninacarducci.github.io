@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/* $(document).ready(function () {
   $(".gallery").mauGallery({
     columns: {
       xs: 1,
@@ -12,7 +12,7 @@ $(document).ready(function () {
     showTags: true,
     tagsPosition: "top",
   });
-});
+}); */
 
 class Carousel {
   constructor(element, options = {}) {
@@ -214,7 +214,7 @@ class Carousel {
 }
 
 const onReady = function () {
-  new Carousel(document.querySelector("#carousel"), {
+  new Carousel(document.querySelector("#carousel1"), {
     infinite: true,
     pagination: true,
     autoSlide: true,
