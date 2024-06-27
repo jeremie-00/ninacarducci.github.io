@@ -223,8 +223,6 @@ p {
 .picture.left::before {
   content: " ";
   background-color: #e5975f;
-  width: 374px;
-  height: 329px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -232,6 +230,8 @@ p {
 }
 
 .picture {
+  width: 374px;
+  height: 329px;
   flex: 1;
   margin: 0 20px;
   z-index: 0;
