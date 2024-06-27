@@ -218,6 +218,7 @@ p {
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
+  min-height: 500px;
 }
 
 .picture.left::before {
@@ -237,6 +238,7 @@ p {
 
 .picture img {
   width: 100%;
+  height: auto;
 }
 #about-me {
   flex: 2;
