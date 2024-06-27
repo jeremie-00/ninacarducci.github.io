@@ -252,7 +252,7 @@ p {
   font-family: "Spectral";
   font-weight: 800;
   font-style: italic;
-  width: 60%;
+  /* width: 60%; */
   line-height: 1.2;
   font-size: 1rem;
   margin-bottom: 0.5rem;
