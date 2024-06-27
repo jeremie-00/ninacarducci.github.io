@@ -199,9 +199,9 @@ class Carousel {
 
 const onReady = function () {
   new Carousel(document.querySelector("#carousel1"), {
-    infinite: true,
+    infinite: false,
     pagination: true,
-    autoSlide: true,
+    autoSlide: false,
   });
 };
 
