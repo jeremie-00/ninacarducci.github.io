@@ -257,6 +257,12 @@ p {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+@media (max-width: 1180px) {
+  #about-me h3,
+  #about-me p {
+    width: 100%;
+  }
+}
 #about-me p {
   width: 80%;
   line-height: 21px;
