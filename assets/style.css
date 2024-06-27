@@ -257,18 +257,18 @@ p {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
+#about-me p {
+  width: 80%;
+  line-height: 21px;
+  font-size: 14px;
+}
 @media (max-width: 1180px) {
   #about-me h3,
   #about-me p {
     width: 100%;
   }
 }
-#about-me p {
-  width: 80%;
-  line-height: 21px;
-  font-size: 14px;
-}
-
 .title {
   text-align: center;
   padding-block: 2em;
