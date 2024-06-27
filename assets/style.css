@@ -230,8 +230,6 @@ p {
 }
 
 .picture {
-  width: 374px;
-  height: 329px;
   flex: 1;
   margin: 0 20px;
   z-index: 0;
@@ -419,12 +417,12 @@ p {
   }
 }
 @media (min-width: 992px) {
-  #gallery .container {
+  .container {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  #gallery .container {
+  .container {
     max-width: 1140px;
   }
 }
