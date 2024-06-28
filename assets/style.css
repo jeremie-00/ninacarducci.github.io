@@ -4,24 +4,18 @@ body {
   color: #212529;
 }
 * {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 h6,
-.h6,
 h5,
-.h5,
 h4,
-.h4,
 h3,
-.h3,
 h2,
-.h2,
-h1,
-.h1 {
+h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -72,7 +66,17 @@ p {
   width: 20px;
 }
 /* Carousel */
+#carousel1 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
 .carousel__root {
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -90,6 +94,8 @@ p {
 
 .carousel__item {
   float: left;
+  width: 100%;
+  height: auto;
 }
 
 .carousel__control__next,
@@ -206,7 +212,7 @@ p {
   transform: translate3d(0, 0, 0);
 }
 
-.item__carousel img {
+.carousel__item__img {
   display: block;
   width: 100%;
   height: auto;
@@ -218,12 +224,15 @@ p {
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
-  min-height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .picture.left::before {
   content: " ";
   background-color: #e5975f;
+  width: 374px;
+  height: 329px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -242,6 +251,8 @@ p {
 }
 #about-me {
   flex: 2;
+  width: 100%;
+  height: 100%;
 }
 .about-me__title {
   margin-top: 1em;
@@ -249,7 +260,7 @@ p {
   font-size: 30px;
 }
 .about-me__introduction {
-  font-family: "Spectral";
+  font-family: "Spectral", sans-serif;
   font-weight: 800;
   font-style: italic;
   width: 60%;
@@ -263,7 +274,13 @@ p {
   line-height: 21px;
   font-size: 14px;
 }
-
+#gallery {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 .title {
   text-align: center;
   padding-block: 2em;
@@ -435,14 +452,14 @@ p {
 }
 
 .quote {
-  font-family: "Spectral";
+  font-family: "Spectral", sans-serif;
   font-style: italic;
   width: 70%;
   margin: auto;
   padding-block: 3em;
 }
 .quote__text {
-  font-family: Spectral;
+  font-family: "Spectral", sans-serif;
   font-style: italic;
   font-weight: 300;
   font-size: 33.9667px;
@@ -450,7 +467,7 @@ p {
   line-height: 1.2;
 }
 .quote__author {
-  font-family: Spectral;
+  font-family: "Spectral", sans-serif;
   font-weight: 800;
   font-size: 22px;
 }

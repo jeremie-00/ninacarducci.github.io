@@ -9,6 +9,7 @@ class Carousel {
         navigation: true,
         infinite: false,
         autoSlide: false,
+        jsonUrl: "./assets/images-min.json",
       },
       options
     );
@@ -16,7 +17,7 @@ class Carousel {
     this.currentItem = 0;
     this.moveCallbacks = [];
     this.offset = 0;
-    const children = Array.from(this.element.children);
+    // const children = Array.from(this.element.children);
     // Modification du DOM
     this.root = this.createDivWithClass("carousel__root");
     this.container = this.createDivWithClass("carousel__container");
@@ -24,14 +25,58 @@ class Carousel {
     this.root.appendChild(this.container);
     this.element.appendChild(this.root);
 
-    this.items = children.map((child) => {
+    this.loadImages().then(() => {
+      this.initCarousel();
+    });
+  }
+  async loadImages() {
+    try {
+      const response = await fetch(this.options.jsonUrl);
+      const images = await response.json();
+      this.createCarouselItems(images);
+    } catch (error) {
+      console.error("Erreur lors du chargement des images :", error);
+    }
+  }
+
+  createCarouselItems(images) {
+    this.items = images.map((image) => {
       const item = this.createDivWithClass("carousel__item");
-      item.appendChild(child);
+      const picture = document.createElement("picture");
+
+      const source1 = document.createElement("source");
+      source1.setAttribute("media", "(max-width: 1099px)");
+      source1.setAttribute("srcset", image.srcset);
+
+      const source2 = document.createElement("source");
+      source2.setAttribute("media", "(min-width: 1100px)");
+      source2.setAttribute("srcset", image.src);
+
+      const img = document.createElement("img");
+      img.setAttribute("src", image.src);
+      img.setAttribute("alt", image.alt);
+      img.setAttribute("width", "1440");
+      img.setAttribute("height", "600");
+
+      img.classList.add("carousel__item__img");
+      picture.appendChild(source1);
+      picture.appendChild(source2);
+      picture.appendChild(img);
+      item.appendChild(picture);
+      this.container.appendChild(item);
       return item;
     });
+  }
 
+  initCarousel() {
     if (this.options.infinite) {
       this.offset = this.options.slidesVisible + this.options.slidesToScroll;
+      if (this.offset > this.items.length) {
+        console.error(
+          "Vous n'avez pas assez d'éléments dans le carousel",
+          this.element
+        );
+      }
       this.items = [
         ...this.items
           .slice(this.items.length - this.offset)
@@ -53,8 +98,10 @@ class Carousel {
     if (this.options.autoSlide) {
       this.startAutoSlide();
     }
-    // Evenements
+    // Événements
     this.moveCallbacks.forEach((callBack) => callBack(this.currentItem));
+    /* this.onWindowResize();
+    window.addEventListener("resize", this.onWindowResize.bind(this)); */
     this.root.addEventListener("keyup", (event) => {
       if (event.key === "ArrowRight" || event.key === "Right") {
         this.next();
@@ -68,8 +115,8 @@ class Carousel {
         this.resetInfinite.bind(this)
       );
     }
+    //new CarouselTouchPlugin(this);
   }
-
   setStyle() {
     const ratio = this.items.length / this.options.slidesVisible;
     this.container.style.width = ratio * 100 + "%";
