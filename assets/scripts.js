@@ -9,7 +9,7 @@ class Carousel {
         navigation: true,
         infinite: false,
         autoSlide: false,
-        jsonUrl: "./assets/images-min.json",
+        jsonUrl: "./assets/images.json",
       },
       options
     );
@@ -17,7 +17,7 @@ class Carousel {
     this.currentItem = 0;
     this.moveCallbacks = [];
     this.offset = 0;
-    // const children = Array.from(this.element.children);
+    const children = Array.from(this.element.children);
     // Modification du DOM
     this.root = this.createDivWithClass("carousel__root");
     this.container = this.createDivWithClass("carousel__container");
@@ -25,9 +25,14 @@ class Carousel {
     this.root.appendChild(this.container);
     this.element.appendChild(this.root);
 
-    this.loadImages().then(() => {
-      this.initCarousel();
+    this.items = children.map((child) => {
+      let item = this.createDivWithClass("carousel__item");
+      item.appendChild(child);
+      return item;
     });
+    //this.loadImages().then(() => {
+    this.initCarousel();
+    //});
   }
   async loadImages() {
     try {
