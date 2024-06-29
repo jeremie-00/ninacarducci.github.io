@@ -26,6 +26,7 @@ class Carousel {
     this.element.appendChild(this.root);
 
     this.items = children.map((child) => {
+      child.classList.remove("hidden");
       let item = this.createDivWithClass("carousel__item");
       item.appendChild(child);
       return item;
