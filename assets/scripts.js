@@ -285,9 +285,10 @@ class Modal {
     this.images = images;
     this.currentImageIndex = index;
     this.updateModalImage();
-    this.modal.classList.remove("dialog__animate__slide__up");
-    this.modal.classList.add("dialog__animate__slide__down");
+
     this.modal.showModal();
+    this.modal.classList.add("dialog__animate__slide__down");
+    this.modal.classList.remove("dialog__animate__slide__up");
   }
 
   closeModal() {
@@ -295,9 +296,9 @@ class Modal {
     this.modal.classList.add("dialog__animate__slide__up");
 
     const onAnimationEnd = () => {
-      this.modal.close();
-      this.modal.classList.remove("dialog__animate__slide__up");
+      //this.modal.classList.remove("dialog__animate__slide__up");
       this.modal.removeEventListener("animationend", onAnimationEnd);
+      this.modal.close();
     };
 
     this.modal.addEventListener("animationend", onAnimationEnd);
@@ -322,7 +323,9 @@ class Modal {
   }
 
   updateModalImage() {
-    this.modalImage.src = this.images[this.currentImageIndex].src;
+    let imageUrl = this.images[this.currentImageIndex].src;
+    imageUrl = imageUrl.replace(".webp", ".jpg");
+    this.modalImage.src = imageUrl;
   }
 }
 
@@ -337,7 +340,6 @@ class Gallery {
     );
 
     this.buttons = document.querySelectorAll(".nav__link");
-
     this.galleryContainer = document.querySelector(".gallery__container");
     const children = Array.from(this.galleryContainer.children);
     this.boxItems = children.map((child) => {

@@ -45,15 +45,15 @@
                     <source media="(max-width: 599px)" srcset="
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-480w.webp 480w,
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-720w.webp 720w
-                  ">
+                  " sizes="100vw">
                     <source media="(min-width: 600px) and (max-width: 1099px)" srcset="
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-720w.webp 720w,
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-1080w.webp 1080w
-                  ">
+                  " sizes="(max-width: 1099px) 720px, 100vw">
                     <source media="(min-width: 1100px)" srcset="
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-1080w.webp 1080w,
                     ./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-1440w.webp 1440w
-                  ">
+                  " sizes="(min-width: 1100px) 1440px, 100vw">
                     <img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-1080w.webp"
                         alt="Homme d'affaires sur un passage piéton" class="carousel__item__img" width="1440"
                         height="665">
@@ -64,15 +64,15 @@
                     <source media="(max-width: 599px)" srcset="
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-480w.webp 480w,
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-720w.webp 720w
-                  ">
+                  " sizes="100vw">
                     <source media="(min-width: 600px) and (max-width: 1099px)" srcset="
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-720w.webp 720w,
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-1080w.webp 1080w
-                  ">
+                  " sizes="(max-width: 1099px) 720px, 100vw">
                     <source media="(min-width: 1100px)" srcset="
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-1080w.webp 1080w,
                     ./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-1440w.webp 1440w
-                  ">
+                  " sizes="(min-width: 1100px) 1440px, 100vw">
                     <img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-1080w.webp"
                         alt="Foule en concert" class="carousel__item__img" width="1440" height="665">
                 </picture>
@@ -82,15 +82,15 @@
                     <source media="(max-width: 599px)" srcset="
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-480w.webp 480w,
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-720w.webp 720w
-                  ">
+                  " sizes="100vw">
                     <source media="(min-width: 600px) and (max-width: 1099px)" srcset="
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-720w.webp 720w,
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-1080w.webp 1080w
-                  ">
+                  " sizes="(max-width: 1099px) 720px, 100vw">
                     <source media="(min-width: 1100px)" srcset="
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-1080w.webp 1080w,
                     ./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-1440w.webp 1440w
-                  ">
+                  " sizes="(min-width: 1100px) 1440px, 100vw">
                     <img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-1080w.webp"
                         alt="Jeunes mariés qui s'embrassent" class="carousel__item__img" width="1440" height="665">
                 </picture>
@@ -99,9 +99,9 @@
         </div>
         <section id="about">
             <div class="picture left">
-                <img src="./assets/images/nina.webp" alt="Portrait de Nina Carducci" width="600" height="600">
+                <img src="./assets/images/nina-480w.webp" alt="Portrait de Nina Carducci" width="480" height="480">
             </div>
-            <div id="about-me"><!--  width="500" height="500" -->
+            <div id="about-me">
                 <h2 class="about-me__title">A propos de moi</h2>
                 <h3 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais
                     prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre
@@ -163,9 +163,10 @@
                             alt="Femme d'affaires devant son ordinateur, souriante" />
                     </div>
                 </div>
-                <dialog id="galleryModal" class="modal">
+                <dialog id="galleryModal" class="modal dialog__animate__slide__up">
                     <div class="modal__content">
-                        <div class="nav__prev">&lt;</div><img class="modal__img" id="modalImage"
+                        <div class="nav__prev">&lt;</div>
+                        <img class="modal__img" id="modalImage"
                             src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp"
                             alt="Contenu de l'image affichée dans la modale au clique" />
                         <div class="nav__next">&gt;</div>
