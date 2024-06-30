@@ -296,7 +296,6 @@ class Modal {
     this.modal.classList.add("dialog__animate__slide__up");
 
     const onAnimationEnd = () => {
-      //this.modal.classList.remove("dialog__animate__slide__up");
       this.modal.removeEventListener("animationend", onAnimationEnd);
       this.modal.close();
     };
