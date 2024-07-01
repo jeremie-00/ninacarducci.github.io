@@ -99,30 +99,29 @@ class Gallery {
   }
 
   setupEventListeners() {
-    window.addEventListener("resize", () => {
-      this.animate = false;
-      this.filterImages(this.filteredTag);
-    });
-
-    window.addEventListener("load", () => {
-      this.animate = false;
-      this.filterImages(this.filteredTag);
-    });
+    window.addEventListener("resize", this.handleResizeOrLoad.bind(this));
+    window.addEventListener("load", this.handleResizeOrLoad.bind(this));
 
     if (this.options.modal) {
       this.images.forEach((img, index) => {
-        img.addEventListener("click", () => {
-          const filteredImages = Array.from(this.images).filter((image) => {
-            return (
-              image.closest(".gallery__box__item").style.display !== "none"
-            );
-          });
-          const filteredIndex = filteredImages.indexOf(img);
-          this.modal.openModal(filteredImages, filteredIndex);
-        });
+        img.addEventListener("click", () => this.openModalOnClick(img));
       });
     }
   }
+
+  handleResizeOrLoad() {
+    this.animate = false;
+    this.filterImages(this.filteredTag);
+  }
+
+  openModalOnClick(img) {
+    const filteredImages = Array.from(this.images).filter(
+      (image) => image.closest(".gallery__box__item").style.display !== "none"
+    );
+    const filteredIndex = filteredImages.indexOf(img);
+    this.modal.openModal(filteredImages, filteredIndex);
+  }
+
   setupFilterButtons() {
     this.buttons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -143,9 +142,7 @@ class Gallery {
   }
 
   activateButton(button) {
-    this.buttons.forEach((btn) => {
-      btn.classList.remove("active");
-    });
+    this.buttons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
   }
 
